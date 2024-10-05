@@ -17,7 +17,7 @@ To use the project, follow these steps:
 
 ### Prerequisites
 - Java JDK 8 or higher
-- A CSV file (e.g., `data.csv`) formatted with rows of scores between elements
+- A CSV file (e.g., `data.csv`) formatted with rows of scores between elements (see [data.csv file](./data.csv))
 
 ## Workflow
 The program will:
