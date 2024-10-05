@@ -8,6 +8,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Utility class for loading data from CSV files.
+ * Provides a method to read a CSV file from the specified file path
+ * and return its content as a list of string arrays.
+ */
 public class DataCSV {
 
     /**

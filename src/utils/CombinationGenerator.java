@@ -3,6 +3,11 @@ package utils;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Utility class for generating combinations of integer lists.
+ * It provides methods to generate combinations by swapping elements between
+ * the first half and the second half of the list.
+ */
 public class CombinationGenerator {
     /**
      * Generates all combinations of the input list by swapping elements between
