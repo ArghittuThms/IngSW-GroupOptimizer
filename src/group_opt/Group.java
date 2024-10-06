@@ -1,7 +1,7 @@
 package group_opt;
 
 import com.opencsv.exceptions.CsvException;
-import utils.CombinationGenerator;
+import utils.CombinationFinder;
 import utils.DataCSV;
 
 import java.io.IOException;
@@ -64,13 +64,16 @@ public class Group {
      */
     public void calculateOptGroups() throws Exception {
         List<Integer> init_comb = IntStream.rangeClosed(0, csv_data_score.getFirst().size() - 1).boxed().toList();
-        List<List<Integer>> combinations = CombinationGenerator.generateComb(init_comb);
+        List<List<Integer>> combinations = CombinationFinder.generateComb(init_comb);
 
         for (List<Integer> list : combinations) {
             double group_1 = calculateAvg(list.subList(0, list.size()/2 ));
             double group_2 = calculateAvg(list.subList(list.size()/2, list.size()));
 
             double groups_avg = (group_1 + group_2) / 2;
+
+            System.out.println(list);
+            System.out.println(group_1 + ", " + group_2+ ", " + groups_avg);
 
             if (groups_avg > avg_group_score) {
                 opt_groups.clear();

@@ -3,7 +3,6 @@ import group_opt.Group;
 
 import java.io.IOException;
 
-// TODO: Create testing methods
 
 /**
  * The Main class is the entry point for running the application. It processes a CSV file, calculates the optimal groupings
@@ -12,7 +11,9 @@ import java.io.IOException;
  * @author arghittu_thms
  */
 public class Main {
-    final static String CSV_PATH = "data.csv";
+//    final static String CSV_PATH = "data.csv";
+    final static String CSV_PATH = "data2.csv";
+//    final static String CSV_PATH = "data3.csv";
 
     public static void main(String[] args) {
 
