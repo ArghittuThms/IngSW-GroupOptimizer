@@ -15,7 +15,6 @@ import java.util.stream.IntStream;
  * The Group class represents a group of components with their associated scores,
  * loaded from a CSV file. It provides functionality to calculate optimal groupings
  * based on the average score between different combinations of components.
- *
  * The class supports loading data from a CSV, calculating the optimal groups,
  * and printing formatted results.
  */
@@ -26,16 +25,19 @@ public class Group {
     private final List<List<Integer>> opt_groups;
     private double avg_group_score;
 
+    private boolean print;
+
     //region Constructors
     /**
      * Default constructor initializes internal lists and sets the average group score to 0.
      */
-    private Group() {
+    private Group(boolean print) {
         components_name = new ArrayList<>();
         csv_data_score = new ArrayList<>();
         opt_groups = new ArrayList<>();
 
         avg_group_score = 0;
+        this.print = print;
     }
 
     /**
@@ -48,9 +50,8 @@ public class Group {
      * @throws CsvException If an error occurs while parsing the CSV file.
      */
     public Group(String path, boolean print) throws IOException, CsvException {
-        this();
-
-        importData(DataCSV.loadCSVFile(path), print);
+        this(print);
+        importData(DataCSV.loadCSVFile(path));
     }
     //endregion
 
@@ -72,8 +73,10 @@ public class Group {
 
             double groups_avg = (group_1 + group_2) / 2;
 
-            System.out.println(list);
-            System.out.println(group_1 + ", " + group_2+ ", " + groups_avg);
+            if (print) {
+                System.out.println(list);
+                System.out.println(group_1 + ", " + group_2+ ", " + groups_avg);
+            }
 
             if (groups_avg > avg_group_score) {
                 opt_groups.clear();
@@ -155,9 +158,8 @@ public class Group {
      *
      * @param imported_data A list of string arrays where each array represents a row of data from the CSV file.
      *                      The first row contains component names, and the following rows contain scores.
-     * @param print A flag indicating whether the loaded data should be printed to the console.
      */
-    private void importData(List<String[]> imported_data, boolean print) {
+    private void importData(List<String[]> imported_data) {
         int n = imported_data.size();
 
         /*
