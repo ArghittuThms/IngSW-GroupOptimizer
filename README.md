@@ -30,7 +30,7 @@ The program will:
 
 - **Main**: The entry point of the application. It loads the CSV, calculates the best groups, and prints the result.
 - **Group**: Manages the core logic of reading data, optimizing groups, and calculating scores.
-- **CombinationGenerator**: Generates different combinations of elements and manages the swapping logic.
+- **CombinationFinder**: Generates different combinations of elements and manages the swapping logic.
 - **DataCSV**: Utility class for loading data from the CSV file.
 
 ## License
